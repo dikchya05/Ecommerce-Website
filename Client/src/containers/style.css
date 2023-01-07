@@ -1,0 +1,133 @@
+.App{
+  background-image:url('../images/front.jpeg');
+}
+
+
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-image: url('../media/ecom.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+  }
+  .form form{
+      width:500px;
+      height: 100%;
+      margin: 0 auto;
+      background-color: aliceblue;
+      padding: 40px 0;
+  }
+  .form form h1{
+    padding: 12px 0 36px 0;
+    font-weight: bolder;
+  }
+  .form form input, select{
+      width: 308px;
+      height: 35px;
+      border: 2px solid rgb(18, 19, 18);
+      border-radius: 8px;
+      padding-left: 10px;
+      display: block;
+      margin: 0 auto 11px auto;
+  }
+  .form form button{
+    margin-top: 25px;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  .form .error {
+    color: rgb(14, 13, 13);
+    margin: -8px 0px 9px 0px;
+    font-size: 12px;
+  }
+  /*login button */
+  .form button{
+  margin: 10px;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 6px 0;
+  width: 30%;
+  opacity: 0.9;
+  text-align: center;
+  padding-left: 10px;
+  }
+button:hover {
+  opacity:1;
+}
+
+  label{
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 35px;
+  }
+  
+  .icon{
+    font-size: 30px;
+    float: right;
+    margin-right: 50px;
+    color: grey;
+  }
+  
+  .cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+  }
+  
+  .send-items, .my-orders{
+    border: 3px solid #020d03;
+    background-color: #360ae4;
+    color: white;
+    height: 50px;
+    width: 500px;
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  .click-option{
+    text-align: center;
+    margin-top: 20px;
+    color: #8B8000;
+  }
+
+/* body{
+   background-image: url('../images/dasboard.jpg');
+  background-size: cover;
+  background-repeat: 90%;
+
+  } */
+  .card_block{
+    align-items: center;
+    display: flex;
+    margin-left: 600px;
+    height: 300px;
+    width: 300px;
+}
+
+  /* body button{
+    text-align: center;
+    background-color: #781414;
+    margin-right: 100px;
+
+  } */
+
+/* .admin_dashboard{
+  background-image: url('../images/dasboard.jpg');
+  
+} */
+ 
+  
