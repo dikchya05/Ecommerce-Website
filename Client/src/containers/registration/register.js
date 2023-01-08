@@ -94,13 +94,15 @@ const Register = () => {
 
                             <Field name="address" type="text" placeholder="Your Address" value={values.address} onChange={handleChange} onBlur={handleBlur} />
                             {errors.address && touched.address ? (<div className="error">{errors.address}</div>) : null}
+
                             <select name="userRole" value={values.userRole} onChange={handleChange} onBlur={handleBlur}>
-                                    <option value="" disabled="disabled" label="Select a Role"></option>
+                                    <option value=""  label="Select a Role"></option>
                                     <option value="user" label="User">User</option>
                                     <option value="admin" label="Admin">Admin</option>
                                 </select>
                                 {errors.userRole && touched.userRole ? (<div className="error">{errors.userRole}</div>) : null}
-                            <select name="country" type="text" value={values.country} onChange={handleChange} onBlur={handleBlur}>
+
+                                <select name="country" type="text" value={values.country} onChange={handleChange} onBlur={handleBlur}>
                                 <option value="" disabled="disabled" label="Select a Country"></option>
                                 {CountryData.map(country => {
                                     const { name } = country
@@ -110,9 +112,10 @@ const Register = () => {
                                 })}
                             </select>
                             {errors.country && touched.country ? (<div className="error">{errors.country}</div>) : null}
+                            
 
 
-                           <ButtonClick  itemname='register' color='red' width='100px'/>
+                           <ButtonClick  itemname='Register' color='red' width='100px'/>
 
                             <p style={{ marginTop: '10px' }}>Already have an account? Please <Link to="/">Login</Link> to continue</p>
                         </Form>

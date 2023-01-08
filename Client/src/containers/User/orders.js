@@ -3,6 +3,7 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
+import UserNavigation from '../../components/navigation/userNavigation';
 
 const Orders =()=>{
     const navigate = useNavigate()
@@ -34,8 +35,11 @@ const Orders =()=>{
         quantity:Yup.number().required('Required')
 	});
     return (
+        <><UserNavigation/>
+        
         
             <div className='form'>
+                
                 <Formik
                     initialValues={{
                         name: '',
@@ -87,6 +91,8 @@ const Orders =()=>{
                     )} 
                 </Formik>
             </div>
+            </>
+             
            )
 }
 

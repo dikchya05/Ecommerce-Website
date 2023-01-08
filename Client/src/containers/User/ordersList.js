@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Box from '../../components/box'
+import UserNavigation from '../../components/navigation/userNavigation';
 
 const OrdersList = ()=>{
     const [orderList, setOrderList] = useState([])
@@ -18,18 +19,25 @@ const OrdersList = ()=>{
     },[])
 
     return(
+        <>
+        <UserNavigation/>
+   
         <section>
+          
             <div className='container'>
+         
                 <div className='orderList'>
                     <h1 className='title'> My Orders</h1>
                     {orderList.length > 0 ? orderList.map((item)=>{
                         return(
                             <Box item={item}/>
+                            
                             )
                     }): 'list not found'}
                 </div>
             </div>
         </section>
+        </>
     )
 }
 

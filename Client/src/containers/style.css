@@ -23,7 +23,7 @@
     padding: 12px 0 36px 0;
     font-weight: bolder;
   }
-  .form form input, select{
+  .form form input{
       width: 308px;
       height: 35px;
       border: 2px solid rgb(18, 19, 18);
@@ -32,9 +32,19 @@
       display: block;
       margin: 0 auto 11px auto;
   }
+  .form form select{
+    width: 308px;
+    height: 35px;
+    border: 2px solid rgb(18, 19, 18);
+    border-radius: 8px;
+    padding-left: 10px;
+    display: block;
+    margin: 0 auto 11px auto;
+}
   .form form button{
     margin-top: 25px;
   }
+  
   
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
@@ -56,8 +66,8 @@
   margin: 10px;
   background-color: #04AA6D;
   color: white;
-  padding: 14px 20px;
-  margin: 6px 0;
+  padding: 10px 10px;
+  margin: 6px 0 0  152px;
   width: 30%;
   opacity: 0.9;
   text-align: center;
@@ -110,12 +120,34 @@ button:hover {
   background-repeat: 90%;
 
   } */
-  .card_block{
-    align-items: center;
+  .card{
+    height: 150px;
+    width: 150px;
+    background: #fc0;
+    border-radius: 10px;
+    text-align: center;
     display: flex;
-    margin-left: 600px;
-    height: 300px;
-    width: 300px;
+    flex-flow: column;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 10px;
+    transition: all .3s ease;
+  }
+  
+.card_block{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
   /* body button{
@@ -125,9 +157,18 @@ button:hover {
 
   } */
 
-/* .admin_dashboard{
+/* .body{
   background-image: url('../images/dasboard.jpg');
-  
+
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
 } */
+.cards{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
  
   
