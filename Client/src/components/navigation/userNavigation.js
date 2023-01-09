@@ -29,11 +29,12 @@ const UserNavigation=()=> {
     <ul class="navbar-nav">
      
       <li class="nav-item">
-        <a class="nav-link" ><Link to = "/ordersList">Order List</Link></a>
+        <a class="nav-link" ><Link to = "/ordersList">Item List</Link></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" onClick={() => logout()}>Logout</a>
       </li>
+      <button onClick={() => navigate(-1)}>Go back</button>
      
     </ul>
   </div>

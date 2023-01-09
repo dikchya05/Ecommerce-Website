@@ -11,6 +11,11 @@ const ButtonClick = (props) =>{
     <Button type="primary" htmlType="submit" style={{width:props.width,
      height:'auto', backgroundColor:props.color}}>{props.itemname}</Button>
     
+    
   </Space>
+
 )};
+
+
+
 export default ButtonClick;

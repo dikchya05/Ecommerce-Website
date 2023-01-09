@@ -5,6 +5,8 @@ import CountryData from '../../components/countries.json';
 import { useNavigate, Link } from 'react-router-dom';
 import '../style.css'
 import ButtonClick from '../../components/button';
+import {message } from 'antd';
+
 
 const passwordRule = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
 

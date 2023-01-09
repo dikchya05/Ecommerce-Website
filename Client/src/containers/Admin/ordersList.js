@@ -1,43 +1,39 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Box from '../../components/box'
-import { Skeleton } from 'antd';
+import { Skeleton, Button, Card } from 'antd';
+import Navigation from '../../components/navigation/navigation'
+import { useNavigate } from "react-router-dom";
 
+const OrdersList = () => {
+    const [itemList, setitemList] = useState([])
+    const navigate = useNavigate()
 
-const OrdersList = ()=>{
-    const [orderList, setOrderList] = useState([])
-
-    const fetchData = async()=>{
+    const fetchData = async () => {
         const response = await fetch("http://localhost:4000/orders")
         const data = await response.json()
-
-        if(data){
-            setOrderList(data.ordersList)
+        if (data) {
+            setitemList(data.itemsList)
         }
     }
-
-    useEffect(()=>{
+    useEffect(() => {
         fetchData()
-    },[])
+    }, [])
 
-    return(
+ return (
         <>
-       
-   
-        <section>
-          
-            <div className='container'>
-         
-                <div className='orderList'>
-                    <h1 className='title'> My Orders</h1>
-                    {orderList.length > 0 ? orderList.map((item)=>{
-                        return(
-                            <Box item={item}/>
-                            
+            <section>
+                <Navigation />
+                <div className='container'>
+                    <div className='orderList'>
+                        <h1 className='title'> Item</h1>
+                        {itemList.length > 0 ? itemList.map((item) => {
+                            return (
+                                <Box item={item} fetchData={fetchData} />
                             )
-                    }): <Skeleton />}
+                        }) : <Skeleton />}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </>
     )
 }

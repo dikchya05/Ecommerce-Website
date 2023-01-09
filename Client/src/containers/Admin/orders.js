@@ -3,7 +3,8 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
-import UserNavigation from '../../components/navigation/userNavigation';
+import Navigation from '../../components/navigation/navigation'
+import ButtonClick from '../../components/button';
 
 const Orders =()=>{
     const navigate = useNavigate()
@@ -22,7 +23,7 @@ const Orders =()=>{
 
         if(data){
             alert(data.msg)
-            navigate('/')
+            navigate('/ordersList')
         }
     }
     
@@ -36,7 +37,7 @@ const Orders =()=>{
 	});
     return (
        <>
-        
+        <Navigation/>
         
             <div className='form'>
                 
@@ -86,7 +87,7 @@ const Orders =()=>{
                             <Field name="quantity" placeholder="Quantity" value={values.quantity} onChange={handleChange} onBlur={handleBlur} />
                             {errors.quantity && touched.quantity ? (<div className="error">{errors.quantity}</div>) : null}
 
-                            <button type="submit">Add Order</button>
+                            <ButtonClick  itemname='Add Order' color='green' width='100px'/>
                         </Form>
                     )} 
                 </Formik>

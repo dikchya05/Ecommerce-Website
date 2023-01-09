@@ -11,14 +11,14 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUserDetails: (state, actions) => {
-     const {fullName, userRole} = actions.payload
-        state.fullName =fullName
-        state.userRole =userRole
+      const { fullName, userRole } = actions.payload
+      state.fullName = fullName
+      state.userRole = userRole
     },
     resetUserDetails: (state, actions) => {
-             state.fullName =''
-         state.userRole =''
-     },
+      state.fullName = ''
+      state.userRole = ''
+    },
   }
 });
 

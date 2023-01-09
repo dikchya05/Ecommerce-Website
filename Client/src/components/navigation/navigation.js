@@ -37,6 +37,10 @@ const UserNavigation=()=> {
       <li class="nav-item">
         <a class="nav-link" onClick={() => logout()}>Logout</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" onClick={() => navigate(-1)}>Go back</a>
+      </li>
+      
      
     </ul>
   </div>
