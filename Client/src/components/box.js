@@ -1,26 +1,24 @@
 import React from 'react'
-
+import { Card } from 'antd';
 import { Link } from "react-router-dom";
 
 const Box = ({item})=>{
+    
    return(
         <>
-            <div className='order_item'>
-                                <div className='bottom'>
-                                    <ul>
-                                    <li class="list-group-item">
+        <Card
+    style={{
+      width: 300,
+    }}
+  >
+    <p>{item.name}</p>
+    <p>{item.brand}</p>
+    <p>{item.size}</p>
+    <p>{item.price}</p>
+   <p>{item.quantity}</p>
 
-                                        
-                                        <li>{item.name}</li>
-                                        <li>{item.brand}</li>
-                                        <li>{item.size}</li>
-                                        <li>{item.price}</li>
-                                        <li>{item.quantity}</li>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-        </>
+  </Card>
+             </>
     )
 }
 export default Box

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Box from '../../components/box'
-import UserNavigation from '../../components/navigation/userNavigation';
+import { Skeleton } from 'antd';
+
 
 const OrdersList = ()=>{
     const [orderList, setOrderList] = useState([])
@@ -20,7 +21,7 @@ const OrdersList = ()=>{
 
     return(
         <>
-        <UserNavigation/>
+       
    
         <section>
           
@@ -33,7 +34,7 @@ const OrdersList = ()=>{
                             <Box item={item}/>
                             
                             )
-                    }): 'list not found'}
+                    }): <Skeleton />}
                 </div>
             </div>
         </section>

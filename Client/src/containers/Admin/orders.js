@@ -22,7 +22,7 @@ const Orders =()=>{
 
         if(data){
             alert(data.msg)
-            navigate('/ordersList')
+            navigate('/')
         }
     }
     
@@ -35,7 +35,7 @@ const Orders =()=>{
         quantity:Yup.number().required('Required')
 	});
     return (
-        <><UserNavigation/>
+       <>
         
         
             <div className='form'>
@@ -86,7 +86,7 @@ const Orders =()=>{
                             <Field name="quantity" placeholder="Quantity" value={values.quantity} onChange={handleChange} onBlur={handleBlur} />
                             {errors.quantity && touched.quantity ? (<div className="error">{errors.quantity}</div>) : null}
 
-                            <button type="submit">Send order</button>
+                            <button type="submit">Add Order</button>
                         </Form>
                     )} 
                 </Formik>
