@@ -48,6 +48,7 @@ function AdminScreen() {
         <Route exact path='/' element={<AdminDashboard/>}></Route>
         <Route exact path='/orders' element={<Orders/>}></Route>
         <Route exact path='/ordersList' element={<OrdersList/>}></Route>
+        <Route exact path='/changepassword' element={<OrdersList/>}></Route>
 
 
       </Routes>
