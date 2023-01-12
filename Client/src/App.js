@@ -12,6 +12,7 @@ import Orders from './containers/Admin/orders'
 import OrdersList from "./containers/Admin/ordersList";
 import { useSelector, useDispatch } from 'react-redux'
 import AdminDashboard from "./containers/Admin/admin";
+import ChangePassword from "./containers/registration/changepassword";
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function UserScreen() {
   return (
       <Routes>
         <Route exact path='/' element={<UserDashboard/>}></Route>
-   
+        <Route exact path='/changepassword' element={<ChangePassword/>}></Route>
+
        
       </Routes>
    
@@ -48,7 +50,7 @@ function AdminScreen() {
         <Route exact path='/' element={<AdminDashboard/>}></Route>
         <Route exact path='/orders' element={<Orders/>}></Route>
         <Route exact path='/ordersList' element={<OrdersList/>}></Route>
-        <Route exact path='/changepassword' element={<OrdersList/>}></Route>
+        <Route exact path='/changepassword' element={<ChangePassword/>}></Route>
 
 
       </Routes>

@@ -7,7 +7,7 @@ app.post('/orders', async(req, res) => {
     const data = await Orders.create(req.body)
     if(data){
         res.json({
-            msg: "order request has beenn sent, please wait until confirmation"
+            msg: "Sucessfully Added"
         })
     }else{
         res.json({
@@ -24,7 +24,7 @@ app.get('/orders', async(req, res)=>{
         const orderData = await Orders.find()
         if(orderData){
             res.json({
-                ordersList: orderData
+                itemsList: orderData
             })
         }
         
@@ -33,6 +33,22 @@ app.get('/orders', async(req, res)=>{
     }
 })
 
-module.exports = app;
+app.delete('/orders', async(req, res)=>{
+    try{
+        const data = await Orders.findByIdAndDelete(req.body.id)
+        if(data){
+            res.json({
+                msg: 'Delete Sucessfully'
+            })
+        }else{
+            res.json({
+                errMsg: 'Something went wrong'
+            })
+        }
+    }catch(err){
+        console.log(err)
+    }
+})
+
 
 module.exports = app;

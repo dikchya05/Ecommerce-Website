@@ -12,7 +12,7 @@ import { DownOutlined, ArrowLeftOutlined, UserOutlined } from '@ant-design/icons
 
 
 
-const UserNavigation = () => {
+const Navigation = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { fullName } = useSelector(state => state.user)
@@ -22,6 +22,9 @@ const UserNavigation = () => {
     dispatch(resetUserDetails())
     navigate('/')
   }
+  const changePassword = () => {
+    navigate("/changepassword");
+  };
   const items = [
     {
       label: (
@@ -33,7 +36,7 @@ const UserNavigation = () => {
     },
     {
       label: (
-        <a target="_blank" onClick={() => navigate(-1)} >
+        <a target="_blank" onClick={() => changePassword()} >
           Change Password
         </a>
       ),
@@ -84,4 +87,4 @@ const UserNavigation = () => {
 
   )
 }
-export default UserNavigation
+export default Navigation

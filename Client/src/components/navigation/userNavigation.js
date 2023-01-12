@@ -11,7 +11,7 @@ import { DownOutlined, ArrowLeftOutlined, UserOutlined } from '@ant-design/icons
 
 
 
-const UserNavigation=()=> {
+const UserNavigation = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { fullName } = useSelector(state => state.user)
@@ -20,47 +20,47 @@ const UserNavigation=()=> {
   const logout = () => {
     dispatch(resetUserDetails())
     navigate('/')
-}
-const items = [
-  {
-    label: (
-      <a target="_blank" onClick={() => logout()} >
-        Logout
-      </a>
-    ),
-    key: '0',
-  },
-  {
-    label: (
-      <a target="_blank" onClick={() => navigate(-1)} >
-        Change Password
-      </a>
-    ),
-    key: '1',
-  },
-  {
-    type: 'divider',
-  },
-]
+  }
 
-
-
-
+  const changePassword = () => {
+    navigate("/changepassword");
+  };
+  const items = [
+    {
+      label: (
+        <a target="_blank" onClick={() => logout()} >
+          Logout
+        </a>
+      ),
+      key: '0',
+    },
+    {
+      label: (
+        <a target="_blank" onClick={() => changePassword()} >
+          Change Password
+        </a>
+      ),
+      key: '1',
+    },
+    {
+      type: 'divider',
+    },
+  ]
 
   return (
-    
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand">Ecommerce</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-     
-      <li class="nav-item">
-        <a class="nav-link" ><Link to = "/ordersList">Item List</Link></a>
-      </li>
-      <li className="user_profile" style={{ 'margin-left': '1200px', 'padding': '10px' }}>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">Ecommerce</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link" ><Link to="/ordersList">Item List</Link></a>
+          </li>
+          <li className="user_profile" style={{ 'margin-left': '1200px', 'padding': '10px' }}>
             <a onClick={(e) => e.preventDefault()}>
               <Space>
                 <Dropdown
@@ -78,14 +78,14 @@ const items = [
           <li class="nav-item">
             <ArrowLeftOutlined onClick={() => navigate(-1)} />
           </li>
-      
-     
-    </ul>
-  </div>
-</nav>
-    
 
- 
+
+        </ul>
+      </div>
+    </nav>
+
+
+
 
 
 
