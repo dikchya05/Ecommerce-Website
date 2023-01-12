@@ -21,6 +21,10 @@ const Box = ({ item, fetchData }) => {
         console.error('There was an error!', error);
       });
   }
+        <Button onClick={() => editItem()}>Delete</Button>
+  const  editItem = async ()=>{
+    
+  }
   return (
     <>
       <Card
@@ -33,7 +37,7 @@ const Box = ({ item, fetchData }) => {
         <p>{item.price}</p>
         <p>{item.quantity}</p>
         <Button onClick={() => deleteItem()}>Delete</Button>
-        
+        <Button onClick={() => editItem()}>Delete</Button>
       </Card>
     </>
   )

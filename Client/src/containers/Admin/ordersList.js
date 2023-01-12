@@ -30,9 +30,11 @@ const OrdersList = () => {
                             return (
                                 <Box item={item} fetchData={fetchData} />
                             )
-                        }) : <Skeleton />}
+                    }): <Skeleton />}
+                     
                     </div>
                 </div>
+            
             </section>
         </>
     )
