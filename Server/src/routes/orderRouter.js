@@ -7,7 +7,7 @@ app.post('/orders', async(req, res) => {
     const data = await Orders.create(req.body)
     if(data){
         res.json({
-            msg: "order request has beenn sent, please wait until confirmation"
+            msg: "Sucessfully Added"
         })
     }else{
         res.json({
@@ -24,10 +24,27 @@ app.get('/orders', async(req, res)=>{
         const orderData = await Orders.find()
         if(orderData){
             res.json({
-                ordersList: orderData
+                itemsList: orderData
             })
         }
         
+    }catch(err){
+        console.log(err)
+    }
+})
+
+app.put('/orders', async(req,res)=>{
+    try{
+        const data = await Orders.findByIdAndUpdate(req.body._id, req.body)
+        if(data){
+            res.json({
+                msg: "updated successfully"
+            })
+        }else{
+            res.json({
+                msg: "something went wrong"
+            })
+        }   
     }catch(err){
         console.log(err)
     }
