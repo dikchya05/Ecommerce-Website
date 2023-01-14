@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {resetUserDetails} from "../../reducers/userSlice"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-import UserNavigation from '../../components/navigation/userNavigation';
+
 
 
 const Dashboard = ()=>{
@@ -13,7 +13,7 @@ const Dashboard = ()=>{
     const {fullName} = useSelector(state=> state.user)
     return(
         <>
-            <UserNavigation/>
+        
             <div className="body">
             <div className="body-contain">
             <h4>Welcome, {fullName}</h4>
@@ -21,7 +21,7 @@ const Dashboard = ()=>{
             
             <div className="card_block">
                 {/* <Card title='Send Item' link="/orders" icon={faPaperPlane}/> */}
-                <Card title='My Orders' link="/ordersList"  icon={faDolly}/>
+                <Card title='My Orders' link="/itemsList"  icon={faDolly}/>
                 </div>
             </div>
             </div>

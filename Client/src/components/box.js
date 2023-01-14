@@ -1,28 +1,36 @@
-import React from 'react'
+import {useState} from 'react'
 import { Card } from 'antd';
 import { Link } from "react-router-dom";
-import { Button } from 'antd';
+import { Button,Modal } from 'antd';
 import axios from 'axios'
+import Items from '../containers/Admin/items'
 
 
 const Box = ({ item, fetchData }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const deleteItem = async () => {
-    //     const requestOptions = {
-    //         method: "DELETE",
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify()
-    //     };
-    //     const response = await fetch('http://localhost:4000/orders', requestOptions);
-    //     const data = await response.json()
-    //    console.log(data)'
-    axios.delete('http://localhost:4000/orders', { data: { id: item._id } })
+    axios.delete('http://localhost:4000/items', { data: { id: item._id } })
       .then(response => response ? fetchData() : null)
       .catch(error => {
         console.error('There was an error!', error);
       });
   }
+  const showModal = () => {
+    setIsModalOpen(true);
+};
+const handleOk = () => {
+    setIsModalOpen(false);
+};
+const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
+     <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null}>
+                <Items isEdit={true} item={item} onOk={handleOk}/>
+            </Modal>
       <Card
         style={{
           width: 300,
@@ -32,7 +40,9 @@ const Box = ({ item, fetchData }) => {
         <p>{item.size}</p>
         <p>{item.price}</p>
         <p>{item.quantity}</p>
+      
         <Button onClick={() => deleteItem()}>Delete</Button>
+        <button onClick={showModal}>Edit</button>
         
       </Card>
     </>

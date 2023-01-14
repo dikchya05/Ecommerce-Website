@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Box from '../../components/box'
 import { Skeleton, Button, Card } from 'antd';
-import Navigation from '../../components/navigation/navigation'
+import Navigation from '../../components/navigation/adminNavigation'
 import { useNavigate } from "react-router-dom";
 
-const OrdersList = () => {
+const ItemsList = () => {
     const [itemList, setitemList] = useState([])
     const navigate = useNavigate()
 
     const fetchData = async () => {
-        const response = await fetch("http://localhost:4000/orders")
+        const response = await fetch("http://localhost:4000/items")
         const data = await response.json()
         if (data) {
             setitemList(data.itemsList)
@@ -18,11 +18,10 @@ const OrdersList = () => {
     useEffect(() => {
         fetchData()
     }, [])
-
+    
  return (
         <>
-            <section>
-                <Navigation />
+            <section>               
                 <div className='container'>
                     <div className='orderList'>
                         <h1 className='title'> Item</h1>
@@ -38,4 +37,4 @@ const OrdersList = () => {
     )
 }
 
-export default OrdersList
+export default ItemsList

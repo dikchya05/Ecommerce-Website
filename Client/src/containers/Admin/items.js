@@ -3,31 +3,30 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
-import Navigation from '../../components/navigation/navigation'
+import Navigation from '../../components/navigation/adminNavigation'
 import ButtonClick from '../../components/button';
+import { Button } from 'antd';
 
-const Orders =()=>{
+const Items =(props)=>{
     const navigate = useNavigate()
-    //const {name} = useSelector(state=> state.user)
 
-    
     const orderItem = async(values)=>{
         const requestOptions = {
-            method: "POST",
+            method: !props.isEdit ?  "POST" : "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values)
         };
 
-        const response = await fetch('http://localhost:4000/orders', requestOptions);
+        const response = await fetch('http://localhost:4000/items', requestOptions);
         const data = await response.json()
 
         if(data){
             alert(data.msg)
-            navigate('/ordersList')
+            navigate('/itemsList')
         }
     }
     
-	const OrderSchema = Yup.object().shape({
+	const itemsSchema = Yup.object().shape({
 		name: Yup.string().required('Required'),
 		brand: Yup.string().required('Required'),
         itemType: Yup.string().required('Required'),
@@ -37,12 +36,9 @@ const Orders =()=>{
 	});
     return (
        <>
-        <Navigation/>
-        
-            <div className='form'>
-                
+            <div className='form'>             
                 <Formik
-                    initialValues={{
+                    initialValues={props.item ||{
                         name: '',
                         brand: '',
                         itemType: '',
@@ -51,7 +47,7 @@ const Orders =()=>{
                         quantity:''
 
                     }}
-                    validationSchema={OrderSchema}
+                    validationSchema={itemsSchema}
                     onSubmit={values=>{
                         orderItem(values)
                     }}
@@ -87,7 +83,8 @@ const Orders =()=>{
                             <Field name="quantity" placeholder="Quantity" value={values.quantity} onChange={handleChange} onBlur={handleBlur} />
                             {errors.quantity && touched.quantity ? (<div className="error">{errors.quantity}</div>) : null}
 
-                            <ButtonClick  itemname='Add Order' color='green' width='100px'/>
+                            <button type="submit">{!props.isEdit ? 'Send' : 'Edit'} item</button>
+                            
                         </Form>
                     )} 
                 </Formik>
@@ -97,4 +94,4 @@ const Orders =()=>{
            )
 }
 
-export default Orders
+export default Items
