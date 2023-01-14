@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Box from '../../components/box'
 import { Skeleton, Button, Card } from 'antd';
-import Navigation from '../../components/navigation/navigation'
+import Navigation from '../../components/navigation/adminNavigation'
 import { useNavigate } from "react-router-dom";
 
 const ItemsList = () => {
@@ -19,11 +19,9 @@ const ItemsList = () => {
         fetchData()
     }, [])
     
-
  return (
         <>
-            <section>
-                <Navigation />
+            <section>               
                 <div className='container'>
                     <div className='orderList'>
                         <h1 className='title'> Item</h1>

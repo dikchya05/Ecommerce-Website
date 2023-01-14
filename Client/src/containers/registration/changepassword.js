@@ -3,7 +3,7 @@ import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import { useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import Navigation from "../../components/navigation/navigation";
+import Navigation from "../../components/navigation/adminNavigation";
 
 const passwordRule = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 const PasswordSchema = Yup.object().shape({

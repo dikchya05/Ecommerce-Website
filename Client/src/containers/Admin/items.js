@@ -3,17 +3,16 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
-import Navigation from '../../components/navigation/navigation'
+import Navigation from '../../components/navigation/adminNavigation'
 import ButtonClick from '../../components/button';
+import { Button } from 'antd';
 
-const Items =()=>{
+const Items =(props)=>{
     const navigate = useNavigate()
-    //const {name} = useSelector(state=> state.user)
 
-    
     const orderItem = async(values)=>{
         const requestOptions = {
-            method: "POST",
+            method: !props.isEdit ?  "POST" : "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values)
         };
@@ -37,12 +36,9 @@ const Items =()=>{
 	});
     return (
        <>
-        <Navigation/>
-        
-            <div className='form'>
-                
+            <div className='form'>             
                 <Formik
-                    initialValues={{
+                    initialValues={props.item ||{
                         name: '',
                         brand: '',
                         itemType: '',
@@ -87,7 +83,8 @@ const Items =()=>{
                             <Field name="quantity" placeholder="Quantity" value={values.quantity} onChange={handleChange} onBlur={handleBlur} />
                             {errors.quantity && touched.quantity ? (<div className="error">{errors.quantity}</div>) : null}
 
-                            <ButtonClick  itemname='Add Items' color='green' width='100px'/>
+                            <button type="submit">{!props.isEdit ? 'Send' : 'Edit'} item</button>
+                            
                         </Form>
                     )} 
                 </Formik>
