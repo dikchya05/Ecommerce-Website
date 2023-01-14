@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const Orders = require('../models/orders')
+const Items = require('../models/items')
 const app = Router();
 
-app.post('/orders', async(req, res) => {
+app.post('/items', async(req, res) => {
     try{
-    const data = await Orders.create(req.body)
+    const data = await Items.create(req.body)
     if(data){
         res.json({
             msg: "Sucessfully Added"
@@ -19,9 +19,9 @@ app.post('/orders', async(req, res) => {
     }
 })
 
-app.get('/orders', async(req, res)=>{
+app.get('/items', async(req, res)=>{
     try{
-        const orderData = await Orders.find()
+        const orderData = await Items.find()
         if(orderData){
             res.json({
                 itemsList: orderData
@@ -33,9 +33,9 @@ app.get('/orders', async(req, res)=>{
     }
 })
 
-app.delete('/orders', async(req, res)=>{
+app.delete('/items', async(req, res)=>{
     try{
-        const data = await Orders.findByIdAndDelete(req.body.id)
+        const data = await Items.findByIdAndDelete(req.body.id)
         if(data){
             res.json({
                 msg: 'Delete Sucessfully'

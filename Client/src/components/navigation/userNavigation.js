@@ -58,7 +58,7 @@ const UserNavigation = () => {
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link" ><Link to="/ordersList">Item List</Link></a>
+            <a class="nav-link" ><Link to="/itemsList">Item List</Link></a>
           </li>
           <li className="user_profile" style={{ 'margin-left': '1200px', 'padding': '10px' }}>
             <a onClick={(e) => e.preventDefault()}>

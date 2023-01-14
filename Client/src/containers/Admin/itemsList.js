@@ -4,12 +4,12 @@ import { Skeleton, Button, Card } from 'antd';
 import Navigation from '../../components/navigation/navigation'
 import { useNavigate } from "react-router-dom";
 
-const OrdersList = () => {
+const ItemsList = () => {
     const [itemList, setitemList] = useState([])
     const navigate = useNavigate()
 
     const fetchData = async () => {
-        const response = await fetch("http://localhost:4000/orders")
+        const response = await fetch("http://localhost:4000/items")
         const data = await response.json()
         if (data) {
             setitemList(data.itemsList)
@@ -39,4 +39,4 @@ const OrdersList = () => {
     )
 }
 
-export default OrdersList
+export default ItemsList

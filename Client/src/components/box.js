@@ -15,7 +15,7 @@ const Box = ({ item, fetchData }) => {
     //     const response = await fetch('http://localhost:4000/orders', requestOptions);
     //     const data = await response.json()
     //    console.log(data)'
-    axios.delete('http://localhost:4000/orders', { data: { id: item._id } })
+    axios.delete('http://localhost:4000/items', { data: { id: item._id } })
       .then(response => response ? fetchData() : null)
       .catch(error => {
         console.error('There was an error!', error);
@@ -33,6 +33,7 @@ const Box = ({ item, fetchData }) => {
         <p>{item.price}</p>
         <p>{item.quantity}</p>
         <Button onClick={() => deleteItem()}>Delete</Button>
+        {/* <Button onClick={() => editItem()}>Edit</Button> */}
         
       </Card>
     </>

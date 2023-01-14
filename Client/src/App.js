@@ -8,11 +8,12 @@ import {
 import Register from "./containers/registration/register";
 import Login from "./containers/login/login";
 import UserDashboard from './containers/User/dashboard'
-import Orders from './containers/Admin/orders'
-import OrdersList from "./containers/Admin/ordersList";
+import Items from './containers/Admin/items'
+import ItemsList from "./containers/Admin/itemsList";
 import { useSelector, useDispatch } from 'react-redux'
 import AdminDashboard from "./containers/Admin/admin";
 import ChangePassword from "./containers/registration/changepassword";
+// import Items from "../../Server/src/models/items";
 
 function App() {
   return (
@@ -48,8 +49,8 @@ function AdminScreen() {
     
       <Routes>
         <Route exact path='/' element={<AdminDashboard/>}></Route>
-        <Route exact path='/orders' element={<Orders/>}></Route>
-        <Route exact path='/ordersList' element={<OrdersList/>}></Route>
+        <Route exact path='/items' element={<Items/>}></Route>
+        <Route exact path='/itemsList' element={<ItemsList/>}></Route>
         <Route exact path='/changepassword' element={<ChangePassword/>}></Route>
 
 

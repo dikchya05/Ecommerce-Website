@@ -4,8 +4,8 @@ import 'bootstrap';
 import { useSelector } from "react-redux"
 import Navigation from '../../components/navigation/navigation';
 import Logo from '../../images/front.jpeg'
-import Orders from './orders';
-import OrdersList from './ordersList';
+import item from './items';
+import itemList from './itemsList';
 
 
 const AdminDashboard = () => {

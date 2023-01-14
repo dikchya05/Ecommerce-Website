@@ -21,7 +21,7 @@ const Dashboard = ()=>{
             
             <div className="card_block">
                 {/* <Card title='Send Item' link="/orders" icon={faPaperPlane}/> */}
-                <Card title='My Orders' link="/ordersList"  icon={faDolly}/>
+                <Card title='My Orders' link="/itemsList"  icon={faDolly}/>
                 </div>
             </div>
             </div>

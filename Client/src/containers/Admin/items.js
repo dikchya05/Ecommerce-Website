@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Navigation from '../../components/navigation/navigation'
 import ButtonClick from '../../components/button';
 
-const Orders =()=>{
+const Items =()=>{
     const navigate = useNavigate()
     //const {name} = useSelector(state=> state.user)
 
@@ -18,16 +18,16 @@ const Orders =()=>{
             body: JSON.stringify(values)
         };
 
-        const response = await fetch('http://localhost:4000/orders', requestOptions);
+        const response = await fetch('http://localhost:4000/items', requestOptions);
         const data = await response.json()
 
         if(data){
             alert(data.msg)
-            navigate('/ordersList')
+            navigate('/itemsList')
         }
     }
     
-	const OrderSchema = Yup.object().shape({
+	const itemsSchema = Yup.object().shape({
 		name: Yup.string().required('Required'),
 		brand: Yup.string().required('Required'),
         itemType: Yup.string().required('Required'),
@@ -51,7 +51,7 @@ const Orders =()=>{
                         quantity:''
 
                     }}
-                    validationSchema={OrderSchema}
+                    validationSchema={itemsSchema}
                     onSubmit={values=>{
                         orderItem(values)
                     }}
@@ -87,7 +87,7 @@ const Orders =()=>{
                             <Field name="quantity" placeholder="Quantity" value={values.quantity} onChange={handleChange} onBlur={handleBlur} />
                             {errors.quantity && touched.quantity ? (<div className="error">{errors.quantity}</div>) : null}
 
-                            <ButtonClick  itemname='Add Order' color='green' width='100px'/>
+                            <ButtonClick  itemname='Add Items' color='green' width='100px'/>
                         </Form>
                     )} 
                 </Formik>
@@ -97,4 +97,4 @@ const Orders =()=>{
            )
 }
 
-export default Orders
+export default Items

@@ -57,11 +57,11 @@ const Navigation = () => {
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link"><Link to="/orders">Orders</Link></a>
+            <a class="nav-link"><Link to="/items">Items</Link></a>
 
           </li>
           <li class="nav-item">
-            <a class="nav-link" ><Link to="/ordersList">Order List</Link></a>
+            <a class="nav-link" ><Link to="/itemsList">Item List</Link></a>
           </li>
           <li className="user_profile" style={{ 'margin-left': '1200px', 'padding': '10px' }}>
             <a onClick={(e) => e.preventDefault()}>
