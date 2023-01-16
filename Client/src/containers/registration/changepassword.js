@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import Navigation from "../../components/navigation/adminNavigation";
+import ShowHidePassword from "../../components/showHidePassword";
 
 const passwordRule = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 const PasswordSchema = Yup.object().shape({
@@ -53,7 +54,7 @@ const ChangePassword = () => {
 
     return (
         <section>
-                <Navigation/>
+            
             <div className="form">
                 <Formik
                     initialValues={{
@@ -72,15 +73,15 @@ const ChangePassword = () => {
                 >
                     {({ errors, touched, values, handleChange, handleBlur, handleSubmit, }) => (
                         <Form onSubmit={handleSubmit}>
-                            <Field name="currentPassword" placeholder="Current Password" value={values.currentPassword}
+                            <Field name="currentPassword" placeholder="Current Password" value={values.currentPassword}	component={ShowHidePassword}
                                 onChange={handleChange} onBlur={handleBlur} />
                             {errors.currentPassword && touched.currentPassword ? (<div className="error">{errors.currentPassword}</div>) : null}
 
-                            <Field name="newPassword" placeholder="New Password" value={values.newPassword}
+                            <Field name="newPassword" placeholder="New Password" value={values.newPassword}	component={ShowHidePassword}
                                 onChange={handleChange} onBlur={handleBlur} />
                             {errors.newPassword && touched.newPassword ? (<div className="error">{errors.newPassword}</div>) : null}
 
-                            <Field name="confirmPassword" placeholder="Confirm Password" value={values.confirmPassword}
+                            <Field name="confirmPassword" placeholder="Confirm Password" value={values.confirmPassword}	component={ShowHidePassword}
                                 onChange={handleChange} onBlur={handleBlur} />
                             {errors.confirmPassword && touched.confirmPassword ? (<div className="error">{errors.confirmPassword}</div>) : null}
                             <button type="submit">Change Password</button><br />

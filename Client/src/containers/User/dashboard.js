@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import {resetUserDetails} from "../../reducers/userSlice"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
+import Items from '../Admin/itemsList'
+import ItemsList from "../Admin/itemsList";
 
 
 
@@ -19,9 +21,11 @@ const Dashboard = ()=>{
             <h4>Welcome, {fullName}</h4>
             
             
+            <ItemsList/>
             <div className="card_block">
+                
                 {/* <Card title='Send Item' link="/orders" icon={faPaperPlane}/> */}
-                <Card title='My Orders' link="/itemsList"  icon={faDolly}/>
+                {/* <Card title='My Orders' link="/itemsList"  icon={faDolly}/>?\ */}
                 </div>
             </div>
             </div>

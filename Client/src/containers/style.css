@@ -174,5 +174,14 @@ button:hover {
   color: #020d03;
   margin-left: 10px;
 }
- 
+.input_wrap {
+  position: relative;
+}
+
+.input_wrap i {
+  position: absolute;
+  right: 10px;
+  line-height: 40px;
+  font-size: 12px;
+}
   
