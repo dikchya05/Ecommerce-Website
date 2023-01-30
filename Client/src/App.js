@@ -11,6 +11,8 @@ import AdminDashboard from "./containers/Admin/admin";
 import ChangePassword from "./containers/registration/changepassword";
 import UserNavigation from "./components/navigation/userNavigation";
 import AllNavigation from "./components/navigation/allNavigation";
+import Profile from "./containers/Profile/profile";
+import Cart from "./containers/User/cart";
 
 
 // import Items from "../../Server/src/models/items";
@@ -44,6 +46,8 @@ function UserScreen() {
     <Routes>
       <Route exact path='/' element={<UserDashboard />}></Route>
       <Route exact path='/changepassword' element={<ChangePassword />}></Route>
+      <Route path='/profile' element={<Profile/>}/>
+
 
 
     </Routes>
@@ -70,6 +74,7 @@ function AuthScreen() {
     <Routes>
       <Route exact path='/' element={<Login />} />
       <Route exact path='/register' element={<Register />} />
+
     </Routes>
 
   );

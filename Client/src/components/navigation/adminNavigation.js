@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap';
 import { Link } from 'react-router-dom';
 import Card from "../card";
@@ -6,10 +6,8 @@ import { faDolly, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from 'react-redux';
 import { resetUserDetails } from "../../reducers/userSlice"
 import { useNavigate } from "react-router-dom";
-import { Dropdown, Space, Avatar } from 'antd';
-import { DownOutlined, ArrowLeftOutlined, UserOutlined } from '@ant-design/icons';
-
-
+import { Dropdown, Avatar, Image, Button, Drawer,Pagination } from 'antd';
+import { DownOutlined, ArrowLeftOutlined, UserOutlined , MenuOutlined} from '@ant-design/icons';
 
 
 const AdminNavigation = () => {
@@ -17,6 +15,14 @@ const AdminNavigation = () => {
   const navigate = useNavigate()
   const { fullName, userRole } = useSelector(state => state.user)
 
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
 
   const logout = () => {
     dispatch(resetUserDetails())
@@ -48,44 +54,35 @@ const AdminNavigation = () => {
   ]
 
   return (
-    <div>
-      
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">Ecommerce</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link"><Link to="/items">Items</Link></a>
 
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" ><Link to="/itemsList">Item List</Link></a>
-            </li>
-            <li className="user_profile" style={{ 'margin-left': '1200px', 'padding': '10px' }}>
-              <a onClick={(e) => e.preventDefault()}>
-                <Space>
-                  <Dropdown
-                    menu={{
-                      items,
-                    }}>
-                    <div className='avatar' style={{ 'margin-right': '50px', 'color': 'black' }}>
-                      <h5>{fullName}</h5>
-                      <Avatar size={55} icon={<UserOutlined style={{ 'color': 'green' }} />} />
-                    </div>
-                  </Dropdown>
-                </Space>
-              </a>
-            </li>
-            <li class="nav-item">
-              <ArrowLeftOutlined onClick={() => navigate(-1)} />
-            </li>
-          </ul>
+    <nav class="navbar" style={{backgroundColor: 'wheat'}} >
+      <div class="navbar-container container">
+        <input type="checkbox" name="" id="" />
+        <div class="hamburger-lines">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
         </div>
-      </nav>
-    </div>
+        <ul class="menu-items">
+          <li><a href="/items">Add Item</a></li>
+          <li><a><Link to="/itemsList">Item List</Link></a></li> &nbsp; &nbsp; &nbsp; &nbsp;
+          <Avatar style={{ backgroundColor: '#68d0ac', }} icon={<UserOutlined />} /> &nbsp;
+          <Dropdown menu={{ items }}>
+            <a onClick={(e) => e.preventDefault()}>
+              <span> {fullName} <DownOutlined /> </span>
+            </a>
+          </Dropdown> &nbsp; &nbsp; &nbsp;
+          {/* <MenuOutlined onClick={showDrawer} style={{ color: 'black', backgroundColor: 'none !important', marginTop: '5px', fontWeight: 'bolder' }} />
+          <Drawer title="Admin Dashboard" placement="right" onClose={onClose} open={open}>
+            <p><Link to="/">Dashboard</Link></p>
+          </Drawer> */}
+          <li class="nav-item">
+            <ArrowLeftOutlined onClick={() => navigate(-1)} />
+          </li>
+        </ul>
+        <h1 class="logo">Ecommerce</h1>
+      </div>
+    </nav>
 
   )
 }

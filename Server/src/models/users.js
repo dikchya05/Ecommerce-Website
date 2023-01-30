@@ -9,6 +9,7 @@ const usersSchema = new Schema({
   address: {type:String, required: true},
   country:  {type:String, required: true},
   userRole:  {type:String, required: true},
+  avatar : {type:String}
   },
   { collection: 'users' });
 

@@ -21,10 +21,21 @@ app.post('/items', async(req, res) => {
 
 app.get('/items', async(req, res)=>{
     try{
-        const orderData = await Items.find()
+        const size = req.query.size || 10
+        const page = req.query.page
+        const skipCount = (size * page - size)
+        let orderData
+        let totalOrderCount 
+        if(page!==null){
+             orderData = await Items.find().skip(skipCount).limit(size)
+             totalOrderCount =  await Items.find().count()
+        }else{
+            orderData = await Items.find()
+        }
         if(orderData){
             res.json({
-                itemsList: orderData
+                itemsList: orderData,
+                totalOrderCount: totalOrderCount
             })
         }
         
