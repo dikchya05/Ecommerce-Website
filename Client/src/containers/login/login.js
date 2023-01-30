@@ -64,7 +64,7 @@ const Login = () => {
                             <Field name="password" type="password" placeholder="Enter Password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
                             {errors.password && touched.password ? <div className="error">{errors.password}</div> : null}
 
-                            <ButtonClick  itemname = 'login' width='100px'/>
+                            <ButtonClick  itemname = 'login' width='100px' marginRight='170px'/>
                             {/* <p style={{color:'black'}}>{message} </p> */}
                             <p style={{ marginTop: '10px' }}>Dont have an account? <Link to="/register">Signup</Link> here</p>
                         </Form>

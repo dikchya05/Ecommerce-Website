@@ -7,13 +7,19 @@ app.use(bodyParser.json())
 app.use(cors())
 const connect = require('./db/connect')
 connect()
+
 const registerRouter = require('./routes/registerRouter');
 const loginRouter = require('./routes/loginRouter');
 const itemRouter = require('./routes/itemRouter');
+const userRouter = require('./routes/userRouter')
+const cartRouter = require('./routes/cartRouter')
 
 app.use(registerRouter)
 app.use(loginRouter)
 app.use(itemRouter)
+app.use(userRouter)
+app.use(cartRouter)
+
 
 
 

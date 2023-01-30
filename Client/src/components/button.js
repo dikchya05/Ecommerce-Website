@@ -12,7 +12,7 @@ const ButtonClick = (props) =>{
      height:'auto', backgroundColor:props.color}}>{props.itemname}</Button> 
    
   
-  </Space>
+  </Space> 
  
 
 )};

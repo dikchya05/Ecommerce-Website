@@ -83,7 +83,7 @@ const Items =(props)=>{
                             <Field name="quantity" placeholder="Quantity" value={values.quantity} onChange={handleChange} onBlur={handleBlur} />
                             {errors.quantity && touched.quantity ? (<div className="error">{errors.quantity}</div>) : null}
 
-                            <button type="submit">{!props.isEdit ? 'Send' : 'Edit'} item</button>
+                            <button type="submit">{!props.isEdit ? 'Add' : 'Edit'} item</button>
                             
                         </Form>
                     )} 
