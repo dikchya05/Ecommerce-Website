@@ -27,12 +27,14 @@ const ItemList = () => {
       }, [])
 
   
-    const addToCart = async (Cartsvalues) => {
-        socket.emit('requestCart', Cartsvalues)
+    const addToCart = async (cartValues) => {
+        debugger
+        socket.emit('requestCart', cartValues)
+        debugger
         const requestOptions = {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(Cartsvalues)
+          body: JSON.stringify(cartValues)
         };
                 const response = await fetch('http://localhost:4000/cart', requestOptions);
         

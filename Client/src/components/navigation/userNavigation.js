@@ -62,7 +62,7 @@ const UserNavigation = () => {
     },
   ]
   const cartInItem = async()=>{
-  
+    
     const response = await fetch(`http://localhost:4000/cart`)
     const data = await response.json()
     if (data) {
@@ -76,10 +76,12 @@ useEffect(() => {
 }, [])
 
 useEffect(() => {
-  socket.on('Cartsvalues', (Cartsvalues) => {
-      if (Cartsvalues) {
+  socket.on('cartValues', (cartValues) => {
+    debugger
+      if (cartValues) {
           const bcupCartItem = cartItem + 1;
           setCartItem(bcupCartItem)
+
       }
   })
 }, [socket, cartItem])
