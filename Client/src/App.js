@@ -13,6 +13,7 @@ import UserNavigation from "./components/navigation/userNavigation";
 import AllNavigation from "./components/navigation/allNavigation";
 import Profile from "./containers/Profile/profile";
 import Cart from "./containers/User/cart";
+import ItemList from "./containers/User/itemList";
 
 
 // import Items from "../../Server/src/models/items";
@@ -47,6 +48,7 @@ function UserScreen() {
       <Route exact path='/' element={<UserDashboard />}></Route>
       <Route exact path='/changepassword' element={<ChangePassword />}></Route>
       <Route path='/profile' element={<Profile/>}/>
+      <Route exact path='/itemsList' element={<ItemList />}></Route>
 
 
 
