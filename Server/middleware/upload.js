@@ -1,6 +1,6 @@
 const multer = require("multer");
 
-const storage = multer.diskStorage({
+const avatarstorage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "../Client/src/images");
   },
@@ -8,6 +8,17 @@ const storage = multer.diskStorage({
     cb(null, file.originalname);
   },
 });
-const upload = multer({ storage: storage }).single("avatar");
+const avatarUpload = multer({ storage: avatarstorage }).single("avatar");
 
-module.exports = upload;
+const cartStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '../Client/src/images/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+const cartUpload = multer({ storage: cartStorage }).single('uploads')
+
+exports.avatarUpload = avatarUpload;
+exports.cartUpload = cartUpload;

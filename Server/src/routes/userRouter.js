@@ -4,7 +4,7 @@ const app = Router();
 const upload = require("../../middleware/upload")
 
 
-app.post("/profile/:id", upload, async (req, res, next) => {
+app.post("/profile/:id", upload.avatarUpload, async (req, res, next) => {
     try {
       const data = await Users.findByIdAndUpdate(
         { _id: req.params.id },

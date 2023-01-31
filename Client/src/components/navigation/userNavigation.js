@@ -8,13 +8,15 @@ import { resetUserDetails } from "../../reducers/userSlice"
 import { useNavigate } from "react-router-dom";
 import { Dropdown, Avatar, Image, Button, Drawer,Pagination } from 'antd';
 import { DownOutlined, ArrowLeftOutlined, UserOutlined, ShoppingOutlined  } from '@ant-design/icons';
-
+import io from 'socket.io-client';
+const socket = io(process.env.REACT_APP_BASE_URL);
 
 
 const UserNavigation = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [cart, setCart] = useState(0)
+  const [cartItem, setCartItem] = useState(0)
+
   const { fullName } = useSelector(state => state.user)
 
 
@@ -59,19 +61,28 @@ const UserNavigation = () => {
       type: 'divider',
     },
   ]
-  const cartItem = async()=>{
+  const cartInItem = async()=>{
   
     const response = await fetch(`http://localhost:4000/cart`)
     const data = await response.json()
-   
     if (data) {
-        setCart(data.cartItem)
+        setCartItem(data.cartInItem)
     }
+    
 }
 
 useEffect(() => {
-    cartItem()
+    cartInItem()
 }, [])
+
+useEffect(() => {
+  socket.on('Cartsvalues', (Cartsvalues) => {
+      if (Cartsvalues) {
+          const bcupCartItem = cartItem + 1;
+          setCartItem(bcupCartItem)
+      }
+  })
+}, [socket, cartItem])
 
 
 
@@ -86,6 +97,7 @@ useEffect(() => {
           <span class="line line3"></span>
         </div>
         <ul class="menu-items">
+        <span style={{ marginTop: '-6px', fontSize: '15px', color: 'red', fontWeight: 'bold' }}>{cartItem}</span>
         <Link to="/cartdetails"><ShoppingOutlined style={{ fontWeight: 'bolder', fontSize: '30px', color: 'green' }} /></Link> 
          
           <li><a><Link to="/itemsList">Item List</Link></a></li> &nbsp; &nbsp; &nbsp; &nbsp;

@@ -6,19 +6,22 @@ import {useSelector} from 'react-redux'
 import { message, Skeleton } from "antd";
 
 
+
 const Profile =()=>{
     const {_id} = useSelector(state=> state.user)
     const [userDetails, setUserDetails] = useState({})
     const [loading, setLoading] = useState(true)
 
     const fetchProfileDetails = async()=>{
-        const response = await fetch('http://localhost:4000/profile/${_id}');
+        axios.get(`${process.env.REACT_APP_BASE_URL}/profile/${_id}`)
+        .then(res=> setUserDetails(res.data.user))
 
     }
-    const avatarUpload = async (file)=>{
+    const avatarupload = async (file)=>{
         const formData = new FormData();
         formData.append("avatar", file);
-        const response = await fetch('http://localhost:4000/profile/id',{
+        formData.append("avatar", file);
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/profile/${_id}`, {
             method: "POST",
             body: formData,
         })
@@ -43,16 +46,14 @@ return(
             <div className="container">
                 <div className="user_profile">
                     <div className="user_img">
-                        {loading?
-                            <img src={require(`../../../src/images/${userDetails.avatar|| ''}`)}  height={'100%'} width={'100%'}
+                        {/* {loading?
+                      
+                            <img src={require(`../../uploads"${userDetails.avatar|| ''}`).default}  height={'100%'} width={'100%'}
                             />: <Skeleton.Avatar active size={200}/>
-                        }
+                        } */}
                     </div>
 
-                    <div className="uploader">
-                        <input onChange={(e)=> avatarUpload(e.target.files[0])} type="file" id="upload" hidden/>
-                        <label htmlFor="upload"><FaCamera/></label>
-                    </div>
+                   
 
                     <div className="user_detail">
                     <h1>{userDetails.name}</h1>
